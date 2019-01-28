@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class test {
+	@SuppressWarnings({ "resource", "static-access" })
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("正在创建一个新的object...请稍后");
+		Test1 test1 = new Test1();
+		if (test1 != null) {
+			try {
+				Thread.currentThread().sleep(2000);
+				System.out.println("object已经被成功创建，请给这个object取个名字");
+				} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+			test1.setObjectName(sc.next());
+			System.out.println(test1);
+		}
+	}
+}
+class Test1 {
+	private String objectName = "null";
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
+	}
+	public String getObjectName() {
+		return objectName;
+	}
+	@Override
+	public String toString() {
+		return "这个对象的名字叫" + objectName;
+	}
+}
